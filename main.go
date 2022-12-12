@@ -15,6 +15,11 @@ var PORT = ":4001"
 func main() {
 	//main route
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		//set CORS headers
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET")
+		w.Header().Set("Access-Control-Allow-Headers", "url")
+
 		//grab header value
     	requestURL := r.Header.Get("url")
 
